@@ -129,3 +129,29 @@ export default function Navbar() {
     </>
   )
 }
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Navbar from '@/components/Navbar'
+
+const inter = Inter({ subsets: ['latin', 'cyrillic'] })
+
+export const metadata: Metadata = {
+  title: 'Echoes - Прогулянка вашими спогадами',
+  description: 'Перетворіть ваші фото, відео та тексти на інтерактивні 3D-світи, у яких ви можете буквально прогулятися своїми спогадами.',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="uk">
+      <body className={inter.className}>
+        <Navbar />
+        {children}
+      </body>
+    </html>
+  )
+}
